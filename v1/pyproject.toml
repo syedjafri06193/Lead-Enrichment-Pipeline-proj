@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lead-enrichment-pipeline"
+version = "0.1.0"
+description = "Entity resolution and echo-suppressed bidirectional CRM sync on an append-only observation store"
+requires-python = ">=3.11"
+dependencies = [
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+# The core runs on the stdlib. These unlock the production backends described
+# in docs/design.md section 13.
+splink = ["splink>=4.0", "duckdb>=0.10"]
+postgres = ["psycopg[binary]>=3.1"]
+crm = ["simple-salesforce>=1.12", "requests>=2.31"]
+dev = ["pytest>=8.0", "pytest-cov>=5.0"]
+
+[project.scripts]
+lep = "lep.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+filterwarnings = ["error::DeprecationWarning"]

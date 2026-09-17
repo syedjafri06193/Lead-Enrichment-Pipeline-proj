@@ -1,0 +1,110 @@
+# Field policy -- design.md sections 7.1, 8.2, 10.3.
+#
+# This file is milestone M0 and it comes BEFORE any sync code.  Every field in
+# scope needs a declared master, a direction, and a resolution strategy, signed
+# off by the data owner.  See docs/field-policy.md for the rationale per field.
+#
+# direction:  none | bidirectional | sf_to_hubspot | hubspot_to_sf
+#             | sf_only | hubspot_only | enrichment_to_all
+# strategy:   source_priority | most_recent | most_confident
+#             | human_wins | never_overwrite | manual
+#
+# Most fields should end up one-directional.  Every bidirectional field is a
+# conflict you have volunteered to resolve.
+
+default:
+  strategy: human_wins
+  fallback: source_priority
+  source_ranking: [user, salesforce, hubspot, enrichment]
+  direction: none
+
+objects:
+  contact:
+    fields:
+      email:
+        master: salesforce
+        direction: sf_to_hubspot
+        strategy: source_priority
+        source_ranking: [user, salesforce, hubspot, enrichment]
+        ttl_days: 180
+
+      first_name:
+        master: salesforce
+        direction: bidirectional        # genuinely edited in both
+        strategy: human_wins
+        fallback: source_priority
+        source_ranking: [salesforce, hubspot, enrichment]
+
+      last_name:
+        master: salesforce
+        direction: bidirectional
+        strategy: human_wins
+        fallback: source_priority
+        source_ranking: [salesforce, hubspot, enrichment]
+
+      phone:
+        master: salesforce
+        direction: bidirectional
+        strategy: human_wins
+        fallback: source_priority
+        source_ranking: [salesforce, hubspot, enrichment]
+
+      job_title:
+        master: enrichment
+        direction: enrichment_to_all
+        # A rep who corrects a title did it for a reason.  Enrichment fills
+        # gaps; it does not correct people (section 10.4).
+        strategy: human_wins
+        fallback: source_priority
+        source_ranking: [salesforce, hubspot, enrichment]
+        ttl_days: 90
+
+      lifecycle_stage:
+        master: hubspot
+        direction: hubspot_to_sf
+        strategy: source_priority
+        source_ranking: [hubspot]
+
+      owner_id:
+        master: salesforce
+        direction: sf_only              # never written from outside
+        strategy: source_priority
+        source_ranking: [salesforce]
+
+      notes:
+        direction: none                 # deliberately not synced
+        strategy: never_overwrite
+
+  company:
+    fields:
+      name:
+        master: salesforce
+        direction: bidirectional
+        strategy: human_wins
+        fallback: source_priority
+        source_ranking: [salesforce, hubspot, enrichment]
+
+      domain:
+        master: salesforce
+        direction: sf_to_hubspot
+        strategy: source_priority
+        source_ranking: [salesforce, enrichment, hubspot]
+
+      employee_count:
+        master: enrichment
+        direction: enrichment_to_all
+        strategy: most_confident
+        source_ranking: [enrichment]
+        ttl_days: 180
+
+      industry:
+        master: enrichment
+        direction: enrichment_to_all
+        strategy: most_confident
+        source_ranking: [enrichment]
+        ttl_days: 365
+
+      founded_year:
+        master: enrichment
+        direction: enrichment_to_all
+        strategy: never_overwrite       # immutable; no TTL
