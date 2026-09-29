@@ -11,7 +11,7 @@ Or, in the revised form the design document arrives at after its reality check:
 > source-of-truth policy, and an API budget manager that treats the customer's
 > rate limit as a shared resource to be conserved.
 
-The full design is in [`../Documentation/README.md`](../Documentation/README.md); code
+The full design is in [`../docs/design.md`](../docs/design.md); code
 comments refer to it by section number throughout.
 
 ---

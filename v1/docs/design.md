@@ -1,7 +1,7 @@
 # Design document
 
 The design this repository implements lives at
-[`../../Documentation/README.md`](../../Documentation/README.md) and is the canonical
+[`../../docs/design.md`](../../docs/design.md) and is the canonical
 copy.  It is referenced throughout the code by section number -- "section 5.4"
 means "Lead Enrichment Pipeline — Design & Build Guide, section 5.4".
 
