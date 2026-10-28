@@ -1,6 +1,6 @@
 """SQLite backing store and schema.
 
-Every table here has a PostgreSQL counterpart in ``docs/schema.postgres.sql``.
+Every table here has a PostgreSQL counterpart in ``sql/schema.postgres.sql``.
 The only interesting difference is JSONB vs. TEXT-holding-JSON; the access
 patterns are identical.
 """

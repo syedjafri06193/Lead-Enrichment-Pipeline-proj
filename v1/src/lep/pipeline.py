@@ -71,7 +71,7 @@ def find_policy_path() -> Path:
             return candidate
     raise FileNotFoundError(
         "no field policy found: set LEP_FIELD_POLICY or create "
-        "config/field-policy.yaml (see docs/field-policy.md)"
+        "config/field-policy.yaml (see 1—Documentation/v1/field-policy.md)"
     )
 
 

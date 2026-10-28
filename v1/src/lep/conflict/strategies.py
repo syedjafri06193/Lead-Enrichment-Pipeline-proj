@@ -252,7 +252,7 @@ DEFAULT_POLICY = FieldPolicy(
 class PolicySet:
     """All field policies for one object type, loaded from YAML.
 
-    See ``config/field-policy.yaml`` and ``docs/field-policy.md``.  M0 in the
+    See ``config/field-policy.yaml`` and ``1—Documentation/v1/field-policy.md``.  M0 in the
     milestone ladder exists because this file should be written, and signed off
     by the data owner, before any sync code runs.
     """
