@@ -66,3 +66,30 @@ Add a row per version as new iterations land.
 ## Documentation
 
 All documentation lives in [`1—Documentation/`](1—Documentation/README.md) — start with its index.
+
+<!-- project-metrics:start -->
+## Project Metrics
+
+[![Stars](https://img.shields.io/github/stars/syedjafri06193/Lead-Enrichment-Pipeline-proj?style=flat-square)](https://github.com/syedjafri06193/Lead-Enrichment-Pipeline-proj/stargazers) [![Forks](https://img.shields.io/github/forks/syedjafri06193/Lead-Enrichment-Pipeline-proj?style=flat-square)](https://github.com/syedjafri06193/Lead-Enrichment-Pipeline-proj/forks) [![Open issues](https://img.shields.io/github/issues/syedjafri06193/Lead-Enrichment-Pipeline-proj?style=flat-square)](https://github.com/syedjafri06193/Lead-Enrichment-Pipeline-proj/issues) [![Last commit](https://img.shields.io/github/last-commit/syedjafri06193/Lead-Enrichment-Pipeline-proj/improvements?style=flat-square)](https://github.com/syedjafri06193/Lead-Enrichment-Pipeline-proj/commits/improvements) [![Commits](https://img.shields.io/github/commit-activity/t/syedjafri06193/Lead-Enrichment-Pipeline-proj?style=flat-square)](https://github.com/syedjafri06193/Lead-Enrichment-Pipeline-proj/commits/improvements) [![Top language](https://img.shields.io/github/languages/top/syedjafri06193/Lead-Enrichment-Pipeline-proj?style=flat-square)](https://github.com/syedjafri06193/Lead-Enrichment-Pipeline-proj) [![Repo size](https://img.shields.io/github/repo-size/syedjafri06193/Lead-Enrichment-Pipeline-proj?style=flat-square)](https://github.com/syedjafri06193/Lead-Enrichment-Pipeline-proj)
+
+### Code
+
+| Metric | Value |
+|---|---|
+| Lines of code | 6,271 |
+| Source files | 64 |
+| Tracked files | 76 |
+| Documentation | 8 Markdown files (12,359 words), 1 PDF |
+| Commits | 10 |
+| Contributors | 1 |
+| Active | 2026-09-11 → 2026-10-28 |
+
+| Language | Lines | Share |
+|---|---:|---:|
+| Python | 6,005 | 95.8% |
+| Transact-SQL | 163 | 2.6% |
+| YAML | 81 | 1.3% |
+| TOML | 22 | 0.4% |
+
+<sub>Code stats as of 2026-10-28, counted with pygount (comments and blank lines excluded). Badges update live.</sub>
+<!-- project-metrics:end -->
