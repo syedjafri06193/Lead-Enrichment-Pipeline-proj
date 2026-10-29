@@ -1,7 +1,7 @@
 # Design document
 
 The design this repository implements lives at
-[`../../docs/design.md`](../../docs/design.md) and is the canonical
+[`../../docs/design.md`](../design.md) and is the canonical
 copy.  It is referenced throughout the code by section number -- "section 5.4"
 means "Lead Enrichment Pipeline — Design & Build Guide, section 5.4".
 
@@ -33,4 +33,4 @@ Companion documents in this directory:
   gets promoted to auto-merge.
 * [`runbook-superclusters.md`](runbook-superclusters.md) — what to do when a
   cluster collapses.
-* [`schema.postgres.sql`](schema.postgres.sql) — the production DDL.
+* [`v1/sql/schema.postgres.sql`](../../v1/sql/schema.postgres.sql) — the production DDL.

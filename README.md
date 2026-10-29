@@ -1,5 +1,7 @@
 # Lead Enrichment Pipeline
 
+[![CI](https://github.com/syedjafri06193/Lead-Enrichment-Pipeline-proj/actions/workflows/ci.yml/badge.svg)](https://github.com/syedjafri06193/Lead-Enrichment-Pipeline-proj/actions/workflows/ci.yml)
+
 Event-driven enrichment service handling identity resolution, fuzzy dedupe, and
 bidirectional CRM sync (HubSpot, Salesforce) with conflict reconciliation.
 
@@ -39,14 +41,15 @@ pytest          # 137 tests
 ```
 .
 ├── README.md          ← you are here
-├── docs/
+├── 1—Documentation/   ← all documentation (index in its README)
 │   ├── design.md      ← full design guide (the spec code comments cite)
-│   └── design.pdf     ← same guide, PDF
+│   ├── design.pdf     ← same guide, PDF
+│   └── v1/            matching, field policy, runbooks, section→module map
 └── v1/                ← first implementation
     ├── src/lep/       identity, cluster, review, enrich, budget, events, store, conflict, sync, privacy
     ├── config/        field-policy.yaml (source of truth per field)
-    ├── tests/         137 tests, incl. echo loop, erasure, no-supercluster
-    └── docs/          matching, field policy, Postgres schema, runbooks, section→module map
+    ├── sql/           production Postgres DDL
+    └── tests/         137 tests, incl. echo loop, erasure, no-supercluster
 ```
 
 Each `vN/` directory is a self-contained iteration. Start with
@@ -59,3 +62,7 @@ Each `vN/` directory is a self-contained iteration. Start with
 | [v1](v1/) | Observation store, probabilistic identity resolution, review queue, budgeted enrichment, echo-safe CRM sync | — |
 
 Add a row per version as new iterations land.
+
+## Documentation
+
+All documentation lives in [`1—Documentation/`](1—Documentation/README.md) — start with its index.

@@ -1,7 +1,7 @@
 """Lead Enrichment Pipeline.
 
 An entity resolution and sync service built on an append-only observation
-store.  See ``docs/design.md`` for the design this implements; section
+store.  See ``1—Documentation/v1/design.md`` for the design this implements; section
 numbers referenced throughout the code point back at that document.
 
 The governing principle (design.md section 5.4): a false merge is irreversible

@@ -13,7 +13,7 @@ dependencies = [
 
 [project.optional-dependencies]
 # The core runs on the stdlib. These unlock the production backends described
-# in docs/design.md section 13.
+# in 1—Documentation/v1/design.md section 13.
 splink = ["splink>=4.0", "duckdb>=0.10"]
 postgres = ["psycopg[binary]>=3.1"]
 crm = ["simple-salesforce>=1.12", "requests>=2.31"]

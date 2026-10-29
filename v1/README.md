@@ -11,7 +11,7 @@ Or, in the revised form the design document arrives at after its reality check:
 > source-of-truth policy, and an API budget manager that treats the customer's
 > rate limit as a shared resource to be conserved.
 
-The full design is in [`../docs/design.md`](../docs/design.md); code
+The full design is in [`../1—Documentation/design.md`](../1—Documentation/design.md); code
 comments refer to it by section number throughout.
 
 ---
@@ -80,7 +80,7 @@ src/lep/
   pipeline.py    the assembled system
   testing.py     simulated clock and the two-CRM soak harness
 config/field-policy.yaml    ← M0: written and signed off before any sync code
-docs/                       ← field policy rationale, matching, runbook, schema
+sql/schema.postgres.sql     ← production DDL (the SQLite store mirrors it)
 tests/                      ← including the three tests from section 17.1
 ```
 
@@ -101,7 +101,7 @@ the suppression.
 
 | Design | Here | Why |
 |---|---|---|
-| PostgreSQL with JSONB | SQLite, same schema shape | The whole system runs with no services. [`docs/schema.postgres.sql`](docs/schema.postgres.sql) is the production DDL; the access patterns are identical. |
+| PostgreSQL with JSONB | SQLite, same schema shape | The whole system runs with no services. [`sql/schema.postgres.sql`](sql/schema.postgres.sql) is the production DDL; the access patterns are identical. |
 | Splink on DuckDB | Splink adapter, plus a built-in Fellegi-Sunter with EM and TF adjustments | The document is right that you should not write your own — so `lep.identity.splink_model` uses Splink when installed (`pip install ".[splink]"`). The built-in scorer keeps the pipeline, tests and demo dependency-free, and has the same interface. |
 | Temporal for workflows | `Backfill` with checkpoints and a priority-aware budget gate | The properties that matter (resumable, pausable, throttled) are in the code rather than in a service. Swap the driver, keep the semantics. |
 | `src/store/`, `src/sync/`, … | `src/lep/store/`, `src/lep/sync/`, … | Top-level packages called `store`, `sync` and `events` collide with everything. One namespace package, same structure. |

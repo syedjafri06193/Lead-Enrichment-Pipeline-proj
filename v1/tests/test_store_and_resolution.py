@@ -14,6 +14,7 @@ from lep.conflict.strategies import (
     ResolutionStrategy,
 )
 from lep.core.types import Observation, SourceKind
+from lep.pipeline import DEFAULT_POLICY_PATH
 from lep.store.resolve import resolve
 from lep.testing import EPOCH
 
@@ -196,7 +197,9 @@ def test_merge_cycles_are_refused(entities):
 
 
 def test_field_policy_file_validates():
-    policies = PolicySet.load("config/field-policy.yaml")
+    # Resolved from the package, not the working directory, so the suite
+    # passes from the repo root as well as from v1/.
+    policies = PolicySet.load(DEFAULT_POLICY_PATH)
     assert policies.validate() == []
     assert policies.for_field("owner_id").direction is Direction.SF_ONLY
     assert "lifecycle_stage" in policies.synced_fields("salesforce")

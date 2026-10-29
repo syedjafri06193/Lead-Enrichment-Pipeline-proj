@@ -2,7 +2,7 @@
 #
 # This file is milestone M0 and it comes BEFORE any sync code.  Every field in
 # scope needs a declared master, a direction, and a resolution strategy, signed
-# off by the data owner.  See docs/field-policy.md for the rationale per field.
+# off by the data owner.  See 1—Documentation/v1/field-policy.md for the rationale per field.
 #
 # direction:  none | bidirectional | sf_to_hubspot | hubspot_to_sf
 #             | sf_only | hubspot_only | enrichment_to_all
